@@ -1,19 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { increment, reset, decrement } from "./features/counter/counterSlice";
+
 const App = () => {
   const { count } = useSelector((state) => {
     return state.counter;
   });
-
   const dispatch = useDispatch();
+
   return (
     <div>
-      <h1>Count: {count}</h1>
-      {
-        // ya pe hum state ko change karenge
-        // And hamesa yad rakhna
-        // Kisi v state ko change karne ke liye hum use karte hain dispatch function
-      }
+      <h1>Counter: {count}</h1>
       <button
         onClick={() => {
           dispatch(increment());
@@ -33,12 +29,10 @@ const App = () => {
           dispatch(decrement());
         }}
       >
-        Decrease
+        Increase
       </button>
     </div>
   );
 };
 
 export default App;
-
-// dispatch function (action) ---> reducer --> Change state --> UI update
